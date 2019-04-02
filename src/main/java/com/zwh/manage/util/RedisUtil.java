@@ -35,7 +35,7 @@ public class RedisUtil {
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxTotal(localRedisConfig.getMaxTotal());
         config.setMaxIdle(localRedisConfig.getMaxIdle());
-        jedisPool = new JedisPool(config, localRedisConfig.getHost());
+        jedisPool = new JedisPool(config, localRedisConfig.getHost(), localRedisConfig.getPort(), 2000, localRedisConfig.getPassword());
     }
 
     /**
@@ -133,7 +133,7 @@ public class RedisUtil {
             jedis = jedisPool.getResource();
             return jedis.incr(key);
         } catch (JedisConnectionException e) {
-            log.error("incr fail {}", e.getMessage());
+            log.error("incr fail {}", e);
             return null;
         } finally {
             if (jedis != null && jedis.isConnected()) {

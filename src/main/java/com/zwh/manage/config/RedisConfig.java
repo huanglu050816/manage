@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 public class RedisConfig {
 
     private String host;
-    private String port;
+    private int port;
     private String password;
     private int maxTotal;
     private int maxIdle;
