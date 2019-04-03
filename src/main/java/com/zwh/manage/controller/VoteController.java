@@ -45,6 +45,11 @@ public class VoteController {
         return new ResponseResult(200, "提交成功");
     }
 
+    @GetMapping("number")
+    public ResponseResult getCount() {
+        return new ResponseResult(200, "查询成功", voteService.getNumbers());
+    }
+
     @GetMapping("members")
     public ResponseResult getList() {
         return new ResponseResult(200, "查询成功", voteService.getMemberList());

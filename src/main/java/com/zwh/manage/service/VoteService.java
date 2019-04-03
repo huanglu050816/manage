@@ -31,6 +31,7 @@ import java.util.List;
 public class VoteService {
 
     private static final String VOTE_PREFIX = "vote:%d:";
+    private static final String NUM_PREFIX = "num:";
 
     @Autowired
     private MemberMapper memberMapper;
@@ -61,6 +62,16 @@ public class VoteService {
         return result;
     }
 
+    public int getNumbers() {
+        String number = RedisUtil.get(NUM_PREFIX);
+        if (StringUtils.isEmpty(number)) {
+            RedisUtil.set(NUM_PREFIX, "0");
+            return 0;
+        } else {
+            return Integer.parseInt(number);
+        }
+    }
+
     public void vote(VoteForm form) {
         // 检查手机号是否重复
         if (voteMapper.checkMobile(form.getMobile()) > 0) {
@@ -75,6 +86,7 @@ public class VoteService {
             String key = String.format(VOTE_PREFIX, id);
             RedisUtil.incr(key);
         }
+        RedisUtil.incr(NUM_PREFIX);
         // 记录
         voteMapper.insert(vote);
     }
