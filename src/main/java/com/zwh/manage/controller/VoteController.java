@@ -10,6 +10,7 @@ import com.zwh.manage.form.VoteForm;
 import com.zwh.manage.model.ResponseResult;
 import com.zwh.manage.service.VoteService;
 import com.zwh.manage.util.ValidatorUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -26,6 +27,7 @@ import java.io.IOException;
  */
 @RequestMapping("vote")
 @RestController
+@Slf4j
 public class VoteController {
 
     @Autowired
@@ -63,7 +65,7 @@ public class VoteController {
             }
             voteService.export(response);
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage(),e);
         }
     }
 
