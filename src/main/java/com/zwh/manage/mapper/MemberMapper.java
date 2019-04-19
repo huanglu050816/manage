@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public interface MemberMapper {
 
-    @Insert("insert into t_member (name,description,amount,benefit) values " +
+    @Insert("insert into t_member (name,description) values " +
             "(#{obj.name},#{obj.description})")
     void insert(@Param("obj") Member member);
 
