@@ -10,8 +10,6 @@ public class BaseInfo {
 
     private int id;
     private String location;
-    private int onlineAmount;
-    private int offlineAmount;
     private String mobile;
     private String msg;
     private String createTime;

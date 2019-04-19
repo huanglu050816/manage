@@ -17,11 +17,11 @@ import java.util.List;
 @Repository
 public interface VoteMapper {
 
-    @Insert("insert into t_vote (name,mobile,amount,benefit,vote_info) values " +
-            "(#{obj.name},#{obj.mobile},#{obj.amount},#{obj.benefit},#{obj.voteInfo})")
+    @Insert("insert into t_vote (name,mobile,vote_info) values " +
+            "(#{obj.name},#{obj.mobile},#{obj.voteInfo})")
     void insert(@Param("obj") Vote vote);
 
-    @Select("select name,mobile,amount,benefit,date_format(create_time, '%Y-%m-%d') as create_date " +
+    @Select("select name,mobile,date_format(create_time, '%Y-%m-%d') as create_date " +
             "from t_vote order by id")
     List<Vote> getList();
 

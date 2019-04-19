@@ -18,7 +18,7 @@ import java.util.List;
 public interface MemberMapper {
 
     @Insert("insert into t_member (name,description,amount,benefit) values " +
-            "(#{obj.name},#{obj.description},#{obj.amount},#{obj.benefit})")
+            "(#{obj.name},#{obj.description})")
     void insert(@Param("obj") Member member);
 
     @Select("select * from t_member order by id")

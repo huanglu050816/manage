@@ -14,8 +14,6 @@ public class Member {
     private int id;
     private String name;
     private String description;
-    private int benefit;
-    private int amount;
     private int voteNumber;
     private Date createTime;
 

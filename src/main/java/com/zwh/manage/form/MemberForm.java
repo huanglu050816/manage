@@ -21,9 +21,5 @@ public class MemberForm {
     @NotNull(message = "描述不能为空")
     @Length(min = 1, message = "描述非法")
     private String description;
-    @Min(value = 0, message = "代收本金非法")
-    private int amount;
-    @Min(value = 0, message = "代收利息非法")
-    private int benefit;
 
 }

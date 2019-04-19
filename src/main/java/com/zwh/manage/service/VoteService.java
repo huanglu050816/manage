@@ -98,7 +98,7 @@ public class VoteService {
     }
 
     /**
-     * 按照地区、手机号、线上投资金额，线下投资金额，日期，留言格式整理
+     * 按照地区、手机号、日期，留言格式整理
      * @param voteList
      * @return
      */
@@ -107,16 +107,12 @@ public class VoteService {
         List<String> firstLine = new ArrayList<>();
         firstLine.add("姓名");
         firstLine.add("手机号");
-        firstLine.add("代收本金");
-        firstLine.add("代收利息");
         firstLine.add("日期");
         result.add(firstLine);
         voteList.forEach(vote -> {
             List<String> list = new ArrayList<>();
             list.add(vote.getName());
             list.add(vote.getMobile());
-            list.add(String.valueOf(vote.getAmount()));
-            list.add(String.valueOf(vote.getBenefit()));
             list.add(String.valueOf(vote.getCreateDate()));
             result.add(list);
         });

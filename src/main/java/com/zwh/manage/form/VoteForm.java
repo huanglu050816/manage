@@ -20,10 +20,6 @@ public class VoteForm {
     private String name;
     @Length(min = 11, max = 11, message = "手机号必须为11位")
     private String mobile;
-    @Min(value = 0, message = "代收本金非法")
-    private int amount;
-    @Min(value = 0, message = "代收利息非法")
-    private int benefit;
     @NotNull(message = "投票信息不能为空")
     @Length(min = 1, message = "投票信息非法")
     private String voteInfo;

@@ -16,8 +16,6 @@ public class Vote {
     private int id;
     private String name;
     private String mobile;
-    private int amount;
-    private int benefit;
     private String voteInfo;
     private Date createTime;
     private String createDate;

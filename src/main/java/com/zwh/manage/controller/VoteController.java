@@ -4,7 +4,6 @@
 package com.zwh.manage.controller;
 
 import com.zwh.manage.exception.InnerException;
-import com.zwh.manage.form.BaseInfoForm;
 import com.zwh.manage.form.MemberForm;
 import com.zwh.manage.form.VoteForm;
 import com.zwh.manage.model.ResponseResult;
@@ -32,6 +31,11 @@ public class VoteController {
 
     @Autowired
     private VoteService voteService;
+
+    @PostMapping("test")
+    public ResponseResult submit() {
+        return new ResponseResult(200, "test成功");
+    }
 
     @PostMapping("member")
     public ResponseResult submit(@Validated MemberForm form, BindingResult bindingResult) {

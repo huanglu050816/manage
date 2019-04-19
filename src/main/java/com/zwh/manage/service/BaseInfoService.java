@@ -40,7 +40,7 @@ public class BaseInfoService {
     }
 
     /**
-     * 按照地区、手机号、线上投资金额，线下投资金额，日期，留言格式整理
+     * 按照地区、手机号、日期，留言格式整理
      * @param baseInfoList
      * @return
      */
@@ -49,8 +49,6 @@ public class BaseInfoService {
         List<String> firstLine = new ArrayList<>();
         firstLine.add("地区");
         firstLine.add("手机号");
-        firstLine.add("线上金额");
-        firstLine.add("线下金额");
         firstLine.add("日期");
         firstLine.add("留言");
         result.add(firstLine);
@@ -58,8 +56,6 @@ public class BaseInfoService {
             List<String> list = new ArrayList<>();
             list.add(baseInfo.getLocation());
             list.add(baseInfo.getMobile());
-            list.add(String.valueOf(baseInfo.getOnlineAmount()));
-            list.add(String.valueOf(baseInfo.getOfflineAmount()));
             list.add(String.valueOf(baseInfo.getCreateTime()));
             list.add(baseInfo.getMsg());
             result.add(list);
